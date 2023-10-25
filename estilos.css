@@ -1,0 +1,39 @@
+.Encabezado{
+    background-color: #383838;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding: 5px;
+    margin: 10px 80px;
+    border-radius: 15px;
+}
+
+#container{
+    width: 32vw;
+    height: 32vw;
+    margin-left: 34vw;
+    margin-right: 34vw;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.row{
+    display: flex;
+    flex: 1;
+}
+
+.space{
+    flex: 1;
+    border: 1px solid rgb(150, 150, 150);
+}
+
+#error{
+    margin-left: 20px;
+    color: red;
+}
+
+body{
+    background-color: #232323;
+}

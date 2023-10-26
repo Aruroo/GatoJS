@@ -7,6 +7,10 @@
     margin: 10px 80px;
     border-radius: 15px;
 }
+img {
+    width: 90%;
+    height: 90%;
+}
 
 #container{
     width: 32vw;
@@ -18,6 +22,9 @@
     flex-direction: column;
 }
 
+.disable {
+    pointer-events: none;
+}
 
 .row{
     display: flex;
@@ -27,6 +34,10 @@
 .space{
     flex: 1;
     border: 1px solid rgb(150, 150, 150);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #error{

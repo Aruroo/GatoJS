@@ -49,7 +49,6 @@ function verificarGanador() {
 
 function clickCelda(celda, indexX, indexY) {
     if (gato[indexX][indexY] == 0) {
-        console.log(`Se hizo clic en ${celda.id}`);
         gato[indexX][indexY] = turno;
         movimientos += 1;
         if (turno == 1) {
@@ -60,8 +59,15 @@ function clickCelda(celda, indexX, indexY) {
             turno = 1;
         }
     } else {
-        console.log(`${celda.id} ya está ocupada`);
-        document.querySelector('#error').textContent = 'Esa celda ya está ocupada!!';
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Casilla ocupada!',
+            showConfirmButton: false,
+            timer: 800,
+            background: '#383838',
+            color:'#fff'
+          })
     }
     determinarGanador()
 }
@@ -79,17 +85,23 @@ function determinarGanador() {
                         icon: 'success',
                         title: 'El ganador es X',
                         text: 'Felicidades!',
+                        background: '#383838',
+                        color:'#fff'
                       })
                 } else if (ganador === 2) {
                     Swal.fire({
                         icon: 'success',
                         title: 'El ganador es O',
                         text: 'Felicidades!',
+                        background: '#383838',
+                        color:'#fff'
                       })
                 } else {
                     Swal.fire({
                         icon: 'warning',
                         title: 'Empate :(',
+                        background: '#383838',
+                        color:'#fff'
                     })
                 }
             }, 100);

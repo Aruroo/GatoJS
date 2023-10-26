@@ -1,7 +1,7 @@
 //0 = esta libre, 1 = está ocupado por x, 2 = está ocupado por o
-const gato = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-let movimientos = 0;
-let turno = 1;
+let gato;
+let movimientos;
+let turno;
 
 //recuperamos todas las celdas
 const c = [document.querySelector('#celda0'),
@@ -13,6 +13,21 @@ const c = [document.querySelector('#celda0'),
         document.querySelector('#celda6'),
         document.querySelector('#celda7'),
         document.querySelector('#celda8')];
+
+const btn = document.querySelector('button');
+
+function nuevoJuego() {
+    gato = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    movimientos = 0;
+    turno = 1;
+    c.forEach(element => {
+        element.innerHTML = '';
+        if (element.classList.contains('disable')) {
+            element.classList.remove('disable')
+        }
+    });
+}
+nuevoJuego()
 
 function verificarGanador() {
     if (gato[0][0] === gato[1][1] && gato[1][1] === gato[2][2]) {
@@ -60,11 +75,22 @@ function determinarGanador() {
             }
             setTimeout(() => {
                 if (ganador === 1) {
-                    alert('Ganador es X!');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'El ganador es X',
+                        text: 'Felicidades!',
+                      })
                 } else if (ganador === 2) {
-                    alert('Ganador es O!');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'El ganador es O',
+                        text: 'Felicidades!',
+                      })
                 } else {
-                    alert('Empate :(');
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Empate :(',
+                    })
                 }
             }, 100);
         }
@@ -84,3 +110,6 @@ c[6].addEventListener('click', () => clickCelda(c[6], 2,0));
 c[7].addEventListener('click', () => clickCelda(c[7], 2,1));
 c[8].addEventListener('click', () => clickCelda(c[8], 2,2));
 
+btn.addEventListener('click', () => {
+    nuevoJuego()
+});
